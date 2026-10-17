@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Cardamom Estate — Run your cardamom estate from your phone</title>
+  <meta name="description" content="Fertilizer schedules, worker attendance, CGA-compliant weekly payroll and AI crop diagnosis for cardamom estates in Kerala.">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Reusable icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="pod" viewBox="330 180 410 670">
+      <path d="M657 205L628 270C500 285 362 450 358 640C356 730 386 790 426 808C560 795 680 650 690 450C694 370 672 312 628 272" fill="none" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M597 340Q540 560 450 742" fill="none" stroke-width="38" stroke-linecap="round"/>
+      <ellipse cx="704" cy="806" rx="30" ry="33" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c3 .2 5.5 2.3 5.5 5.3"/></symbol>
+    <symbol id="i-rupee" viewBox="0 0 24 24"><path d="M6 4h12M6 9h12M6 4c5 0 8 1.5 8 5s-3 5-8 5l8 6"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15z"/><path d="M5 19l8-8"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-wifi-off" viewBox="0 0 24 24"><path d="M3 3l18 18M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 5-2.7M14 10.3A10 10 0 0 1 19 13M2 9.5a15 15 0 0 1 4.5-2.8M10.5 6.1A15 15 0 0 1 22 9.5"/><circle cx="12" cy="20" r=".8"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="">My Cardamom Estate</a>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#ai">MCE AI</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary btn-sm" href="#download">Download app</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="pill"><i></i>Built for Kerala cardamom estates</span>
+        <h1>Run your estate<span class="accent">on your phone</span></h1>
+        <p class="lead">Mark attendance, pay workers the correct wage, plan fertilizer and check sick plants with a photo. Made for cardamom farmers in Kerala. Works even without network.</p>
+
+        <div class="hero-actions">
+          <!-- TODO: replace # with store links after launch -->
+          <a class="store-btn dark" href="#download">
+            <svg class="ic"><use href="#i-play"/></svg>
+            <div><small>Get it on</small><span>Google Play</span></div>
+          </a>
+          <a class="store-btn light" href="#download">
+            <svg class="ic"><use href="#i-apple"/></svg>
+            <div><small>Download on the</small><span>App Store</span></div>
+          </a>
+        </div>
+
+        <div class="facts">
+          <div class="fact"><b>30 days</b><span>free to try</span></div>
+          <div class="fact"><b>CGA wages</b><span>always correct</span></div>
+          <div class="fact"><b>Offline</b><span>works without network</span></div>
+        </div>
+      </div>
+
+      <!-- Collage of app cards (sample data) -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="glow"></div>
+        <svg class="pod-bg"><use href="#pod"/></svg>
+
+        <div class="bento">
+          <div class="col">
+            <div class="tile">
+              <div class="tile-head">
+                <small>This week's payroll</small>
+                <div class="tile-ic"><svg class="ic"><use href="#i-rupee"/></svg></div>
+              </div>
+              <div class="tile-big">₹41,840</div>
+              <div class="tile-sub">24 workers · CGA rates</div>
+              <div class="rows">
+                <div class="row"><span class="av">RK</span><b>Rajan</b><em>₹3,470</em><span class="chip paid">Paid</span></div>
+                <div class="row"><span class="av">LM</span><b>Lakshmi</b><em>₹3,438</em><span class="chip due">Due</span></div>
+                <div class="row"><span class="av">SJ</span><b>Suresh</b><em>₹2,896</em><span class="chip due">Due</span></div>
+              </div>
+            </div>
+
+            <div class="tile">
+              <div class="tile-head">
+                <small>Fertilizer tomorrow</small>
+                <div class="tile-ic"><svg class="ic"><use href="#i-leaf"/></svg></div>
+              </div>
+              <div class="tile-big" style="font-size:19px">NPK 20:10:10</div>
+              <div class="tile-sub">Plot A1 · needs 500 kg</div>
+              <div class="meter"><i style="width:100%"></i></div>
+              <div class="tile-sub" style="margin-top:6px">In store: 520 kg ✓</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="tile">
+              <div class="tile-head">
+                <small>Today's attendance</small>
+                <div class="tile-ic"><svg class="ic"><use href="#i-users"/></svg></div>
+              </div>
+              <div class="tile-big">22 <span>of 24 present</span></div>
+              <div class="faces">
+                <span>RK</span><span>LM</span><span>SJ</span><span>AN</span><span class="more">+18</span>
+              </div>
+              <span class="offline"><svg class="ic"><use href="#i-wifi-off"/></svg>Saved offline · syncs later</span>
+            </div>
+
+            <div class="tile ai">
+              <div class="tile-head">
+                <small>MCE AI scan</small>
+                <div class="tile-ic"><svg class="ic"><use href="#i-spark"/></svg></div>
+              </div>
+              <div class="tile-big" style="font-size:20px">Leaf blight</div>
+              <div class="tile-sub">86% sure · treatment for 10 acres</div>
+              <div class="meter"><i style="width:86%"></i></div>
+            </div>
+
+            <div class="tile">
+              <div class="tile-head">
+                <small>Daily wage</small>
+                <div class="tile-ic"><svg class="ic"><use href="#i-check"/></svg></div>
+              </div>
+              <div class="tile-big" style="font-size:20px">₹578.31</div>
+              <div class="tile-sub">Rajan · 18 yrs · spraying</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Features</div>
+        <h2 class="section-title">Everything your estate runs on</h2>
+        <p class="section-lead">Replace paper ledgers, scattered WhatsApp messages and mental arithmetic with one tool made only for cardamom.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card highlight">
+          <div class="icon"><svg class="ic"><use href="#i-spark"/></svg></div>
+          <h3>AI crop diagnosis <span class="badge">MCE AI</span></h3>
+          <p>Photograph a leaf, stem or capsule and get the likely problem and a treatment sized for your acres.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg class="ic"><use href="#i-users"/></svg></div>
+          <h3>Daily attendance</h3>
+          <p>Mark who came, hours worked, spraying and shade work in seconds — even with no network.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg class="ic"><use href="#i-rupee"/></svg></div>
+          <h3>CGA-compliant payroll</h3>
+          <p>Weekly wages from the latest Growers Association circular, with weightage by years of service.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg class="ic"><use href="#i-leaf"/></svg></div>
+          <h3>Fertilizer schedule</h3>
+          <p>A ready cardamom schedule with quantities for your estate and a reminder the day before.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg class="ic"><use href="#i-box"/></svg></div>
+          <h3>Store room stock</h3>
+          <p>See what's in store, what's needed next and what to buy now, with low-stock alerts.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg class="ic"><use href="#i-cal"/></svg></div>
+          <h3>Year-end & gratuity</h3>
+          <p>Bonus, festival pay, sick allowance, leave, blanket allowance and gratuity — worked out for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MCE AI SPOTLIGHT ============ -->
+  <section id="ai" style="padding-top:0">
+    <div class="wrap">
+      <div class="spotlight">
+        <div>
+          <div class="eyebrow">MCE AI</div>
+          <h2 class="section-title">Spot crop disease before it spreads.</h2>
+          <p>Take a photo of a sick leaf, stem or capsule. MCE AI names the likely problem, how sure it is, and what to apply — with quantities worked out for your estate.</p>
+          <ul class="checks">
+            <li>Trained on cardamom problems like leaf blight and capsule rot</li>
+            <li>Treatment and dose sized for your acreage</li>
+            <li>Every scan saved in your estate's history</li>
+          </ul>
+        </div>
+
+        <div class="scan-card">
+          <div class="scan-top">
+            <div class="scan-thumb"><svg><use href="#pod"/></svg></div>
+            <div><small>LIKELY PROBLEM</small><b>Leaf blight</b></div>
+          </div>
+          <div class="conf"><span>Confidence</span><strong style="color:var(--green)">86%</strong></div>
+          <div class="bar"><i></i></div>
+          <div class="dose">
+            <small>For your 10 acres</small>
+            <strong>Copper oxychloride 25 kg</strong> in 5,000 L water, sprayed on lower leaves.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section id="how" style="background:var(--white)">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">How it works</div>
+        <h2 class="section-title">Set up in five minutes</h2>
+        <p class="section-lead">No training, no paperwork. If you can use WhatsApp, you can use My Cardamom Estate.</p>
+      </div>
+
+      <div class="steps-row">
+        <div class="step">
+          <h3>Sign in with your phone</h3>
+          <p>Enter your mobile number and the code we send. No passwords to remember.</p>
+        </div>
+        <div class="step">
+          <h3>Add your estate</h3>
+          <p>Estate name, acres and plots. Your cardamom fertilizer schedule is created for you.</p>
+        </div>
+        <div class="step">
+          <h3>Add workers & go</h3>
+          <p>Mark attendance each morning. Payroll, reminders and reports follow automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">Pricing</div>
+        <h2 class="section-title">Start free. Upgrade when you're ready.</h2>
+        <p class="section-lead">Every new estate gets 30 days of Pro free — no payment details needed.</p>
+      </div>
+
+      <div class="pricing">
+        <div class="card">
+          <h3>Free</h3>
+          <div class="price">₹0</div>
+          <ul class="list">
+            <li>Up to 5 workers</li>
+            <li>Attendance & weekly payroll</li>
+            <li>Fertilizer schedule & stock</li>
+            <li>10 MCE AI scans a month</li>
+          </ul>
+        </div>
+        <div class="card highlight">
+          <h3>Pro <span class="ribbon">BEST FOR ESTATES</span></h3>
+          <div class="price">₹4,200 <small>/ year</small></div>
+          <ul class="list">
+            <li>Unlimited workers</li>
+            <li>Unlimited AI crop diagnosis</li>
+            <li>PDF reports: payroll, settlement, gratuity</li>
+            <li>Import workers from a spreadsheet</li>
+          </ul>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin:18px auto 0;text-align:center;max-width:620px">Pro is billed yearly through the App Store or Google Play and renews automatically. Cancel anytime in your store account.</p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" style="background:var(--white)">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">FAQ</div>
+        <h2 class="section-title">Questions planters ask</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Does the app work without internet?</summary>
+          <p>Yes. Attendance, worker changes, fertilizer applications and stock purchases can be recorded offline. They sync automatically when your phone is back online.</p>
+        </details>
+        <details>
+          <summary>How are union wages calculated?</summary>
+          <p>From the Cardamom Growers Association circular in force for each day (Basic + DA), plus weightage for years of service and ₹3.25 allowances for spraying and shade work. You can edit the rates if your area differs.</p>
+        </details>
+        <details>
+          <summary>Is my estate data safe?</summary>
+          <p>Your data travels over encrypted connections and only your account can see your estate. We never sell your data or show ads. Read our <a href="privacy.html">Privacy Policy</a>.</p>
+        </details>
+        <details>
+          <summary>What happens after the free trial?</summary>
+          <p>You move to the Free plan automatically — nothing is charged. Upgrade to Pro anytime for unlimited workers, AI scans and PDF reports.</p>
+        </details>
+        <details>
+          <summary>How do I cancel Pro?</summary>
+          <p>In your App Store or Google Play subscription settings. You keep Pro until the end of the paid year.</p>
+        </details>
+        <details>
+          <summary>Can I delete my account?</summary>
+          <p>Yes, anytime from Profile → Delete account. See <a href="delete-account.html">how account deletion works</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOAD ============ -->
+  <section id="download">
+    <div class="wrap">
+      <div class="download">
+        <h2>Bring your estate into your pocket</h2>
+        <p>Free to download. 30 days of Pro on us.</p>
+        <div class="store-row">
+          <!-- TODO: replace # with store links after launch -->
+          <a class="store-btn dark" href="#">
+            <svg class="ic"><use href="#i-play"/></svg>
+            <div><small>Get it on</small><span>Google Play</span></div>
+          </a>
+          <a class="store-btn light" href="#">
+            <svg class="ic"><use href="#i-apple"/></svg>
+            <div><small>Download on the</small><span>App Store</span></div>
+          </a>
+        </div>
+      </div>
+      <p id="contact" style="text-align:center;color:var(--muted);margin-top:28px">
+        <!-- TODO: replace with the real support email -->
+        Questions? Email <a href="mailto:support@mycardamomestate.com">support@mycardamomestate.com</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Griffon Webstudios · My Cardamom Estate</span>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="delete-account.html">Delete account</a>
+      <a href="mailto:support@mycardamomestate.com">Support</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
